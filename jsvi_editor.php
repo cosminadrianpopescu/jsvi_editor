@@ -14,7 +14,7 @@
 
 class jsvi_editor extends rcube_plugin
 {
-    public $task = 'compose';
+    public $task = 'mail|compose';
 
     function init()
     {
