@@ -2,6 +2,9 @@ var dim = {};
 $(document).ready(function(){
     if ($('input[name="_is_html"]').val() == '0'){
         if (typeof(editor) != 'undefined'){
+            if ($('*:focus').attr('id') == 'composebody'){
+                $('*:focus').blur();
+            }
             $('#composebody').focus(function(){
                 dim = {w: $('#composebody').width(), h: $('#composebody').height()};
                 editor(this);
