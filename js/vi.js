@@ -2271,8 +2271,8 @@ function term_keyfix(e) {
 		e.cancelBubble=true;
 		return false;
 	} else {
-		e.cancelBubble=false;
-		return true;
+		e.cancelBubble=true;
+		return false;
 	}
 
 }
