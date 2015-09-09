@@ -11,6 +11,7 @@ $(document).ready(function(){
             }).on('vi_quit', function(ev){
                 $(this).width(dim.w).height(dim.h);
                 // Hack for the scroller for the contacts
+                console.log('setting back the position', scrollerPos);
                 $('.scroller.withfooter').position(scrollerPos);
             });
         }
