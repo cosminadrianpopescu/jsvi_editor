@@ -18,7 +18,6 @@ class jsvi_editor extends rcube_plugin
 
     function init()
     {
-        die('test');
         $rcmail = rcmail::get_instance();
         $this->require_plugin('jqueryui');
 
