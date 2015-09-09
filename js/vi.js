@@ -3156,8 +3156,7 @@ function term_keypress_inner(e, synth) {
 
 	term_redraw();
 	_update_backing();
-    e.preventDefault();
-	return false;
+	return;
 }
 
 function _redraw_cursor() {
@@ -3710,7 +3709,7 @@ function editor(t) {
 	_cbd('select', _cancel_ev);
 	_cbd('selectstart', _cancel_ev);
 	_cbd('keydown', term_keyfix);
-	_cbd('keypress', term_keypress);
+	_cbd('keydown', term_keypress);
 	_cbd('paste', _msie_paste);
 	_cbd('click', _mouseclick);
 	_cbd('mousedown', _mousedown);
