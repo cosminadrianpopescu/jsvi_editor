@@ -2271,8 +2271,8 @@ function term_keyfix(e) {
 		e.cancelBubble=true;
 		return false;
 	} else {
-		e.cancelBubble=true;
-		return false;
+		e.cancelBubble=false;
+		return true;
 	}
 
 }
@@ -3156,7 +3156,8 @@ function term_keypress_inner(e, synth) {
 
 	term_redraw();
 	_update_backing();
-	return;
+    e.preventDefault();
+	return false;
 }
 
 function _redraw_cursor() {
