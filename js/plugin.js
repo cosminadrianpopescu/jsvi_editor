@@ -5,7 +5,7 @@ $(document).ready(function(){
         if (typeof(editor) != 'undefined'){
             $('#composebody').focus(function(){
                 dim = {w: $('#composebody').width(), h: $('#composebody').height()};
-                scrollerPos = $('scroller.withfooter').position();
+                scrollerPos = $('.scroller.withfooter').position();
                 console.log('pos', scrollerPos);
                 editor(this);
             }).on('vi_quit', function(ev){
