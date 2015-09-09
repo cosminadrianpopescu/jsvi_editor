@@ -2275,6 +2275,8 @@ function term_keyfix(e) {
 		return true;
 	}
 
+    term_keypress_inner(e, false);
+
 }
 function term_keypress(e) {
 	if (!e) e = window.event;
@@ -3709,7 +3711,7 @@ function editor(t) {
 	_cbd('select', _cancel_ev);
 	_cbd('selectstart', _cancel_ev);
 	_cbd('keydown', term_keyfix);
-	_cbd('keydown', term_keypress);
+	// _cbd('keydown', term_keypress);
 	_cbd('paste', _msie_paste);
 	_cbd('click', _mouseclick);
 	_cbd('mousedown', _mousedown);
