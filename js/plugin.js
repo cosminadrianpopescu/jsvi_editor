@@ -13,6 +13,7 @@ $(document).ready(function(){
                 // Hack for the scroller for the contacts
                 console.log('setting back the position', scrollerPos);
                 $('.scroller.withfooter').position(scrollerPos);
+                console.log('pos', $('.scroller.withfooter').position());
             });
         }
     }
