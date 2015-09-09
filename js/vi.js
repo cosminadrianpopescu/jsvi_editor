@@ -2245,6 +2245,7 @@ function term_paste(after, ign) {
 	return true;
 }
 function term_keyfix(e) {
+    console.log('key down');
 	if (!e) e = window.event;
 
 	var ch = e.keyCode;
@@ -2289,6 +2290,7 @@ function term_keypress(e) {
 	return false;
 }
 function term_keypress_inner(e, synth) {
+    console.log('key press inner');
 	var k = e.which;
 	var kc;
 	if (e.charCode) {
