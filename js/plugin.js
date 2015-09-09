@@ -12,7 +12,7 @@ $(document).ready(function(){
                 $(this).width(dim.w).height(dim.h);
                 // Hack for the scroller for the contacts
                 console.log('setting back the position', scrollerPos);
-                $('.scroller.withfooter').position(scrollerPos);
+                $('.scroller.withfooter').css('top', scrollerPos.top);
                 console.log('pos', $('.scroller.withfooter').position());
             });
         }
