@@ -2267,6 +2267,9 @@ function term_keyfix(e) {
 	|| ch == 57376) {
 		if (e.preventDefault) e.preventDefault();
 		if (e.stopPropagation) e.stopPropagation();
+        if (ch == 27){
+            e.charCode = ch;
+        }
 		term_keypress_inner(e, true);
 		e.cancelBubble=true;
 		return false;
