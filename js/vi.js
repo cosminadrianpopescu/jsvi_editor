@@ -3595,7 +3595,7 @@ function editor_disable(sav) {
     $(textarea).trigger('vi_quit', []);
 }
 function _cursor_fix() {
-	term_cur_width = cursor.offsetWidth - 1;
+	term_cur_width = cursor.offsetWidth;
 }
 function _zmp(o) {
 	o.style.marginTop='0px';
