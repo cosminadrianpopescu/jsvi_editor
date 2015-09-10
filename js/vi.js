@@ -2245,36 +2245,16 @@ function term_paste(after, ign) {
 	return true;
 }
 function term_keyfix(e) {
-    console.log('term_keyfix', e);
 	if (!e) e = window.event;
 
 	var ch = e.keyCode;
 	if (!ch) ch = e.which;
 
-	if (e.DOM_VK_UP) {
-		if (e.DOM_VK_UP == ch) ch = 57373;
-		else if (e.DOM_VK_DOWN == ch) ch = 57374;
-		else if (e.DOM_VK_LEFT == ch) ch = 57375;
-		else if (e.DOM_VK_RIGHT == ch) ch = 57376;
-	}
-
-	if (ch == 8 || ch == 9 || ch == 27 || ch == 39 
-	|| ch == 32 || ch == 37 || ch == 38 || ch == 40 || ch == 127
-	|| ch == 33 || ch == 34 || ch == 36
-	|| ch == 35 || ch == 45 || ch == 46
-	|| ch == 57373
-	|| ch == 57374
-	|| ch == 57375
-	|| ch == 57376) {
-		if (e.preventDefault) e.preventDefault();
-		if (e.stopPropagation) e.stopPropagation();
-		term_keypress_inner(e, ch != 27 && ch != 32);
-		e.cancelBubble=true;
-		return false;
-	} else {
-		e.cancelBubble=false;
-		return true;
-	}
+    if (e.preventDefault) e.preventDefault();
+    if (e.stopPropagation) e.stopPropagation();
+    term_keypress_inner(e, false);
+    e.cancelBubble=true;
+    return false;
 
 }
 function term_keypress(e) {
