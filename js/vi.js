@@ -58,6 +58,7 @@ var lastcommand;
 var lastmotion;
 var cursoriv;
 var drawiv;
+var _isWk = navigator.userAgent.match(/webkit/i) != null;
 
 var printer;
 var term;
@@ -2245,7 +2246,6 @@ function term_paste(after, ign) {
 	return true;
 }
 function term_keyfix(e) {
-    console.log('term_keyfix', e);
 	if (!e) e = window.event;
 
 	var ch = e.keyCode;
@@ -2259,7 +2259,7 @@ function term_keyfix(e) {
 	}
 
 	if (ch == 8 || ch == 9 || ch == 27 || ch == 39 
-	|| ch == 32 || ch == 37 || ch == 38 || ch == 40 || ch == 127
+	|| (ch == 32 && _isWk) || ch == 37 || ch == 38 || ch == 40 || ch == 127
 	|| ch == 33 || ch == 34 || ch == 36
 	|| ch == 35 || ch == 45 || ch == 46
 	|| ch == 57373
@@ -2290,7 +2290,6 @@ function term_keypress(e) {
 	return false;
 }
 function term_keypress_inner(e, synth) {
-    console.log('term_keypress', e, synth);
 	var k = e.which;
 	var kc;
 	if (e.charCode) {
