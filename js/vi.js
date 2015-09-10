@@ -2319,17 +2319,9 @@ function term_keypress_inner(e, synth) {
 			k = 0;
 		}
 	} else if (e.keyCode) {
-        console.log('3');
 		k = e.keyCode;
-		if (e.DOM_VK_UP) {
-			if (e.DOM_VK_UP == k) k = 57373;
-			else if (e.DOM_VK_DOWN == k) k = 57374;
-			else if (e.DOM_VK_LEFT == k) k = 57375;
-			else if (e.DOM_VK_RIGHT == k) k = 57376;
-		} else {
-			kc = String.fromCharCode(e.keyCode);
-            console.log('init kc', kc);
-		}
+        kc = String.fromCharCode(e.keyCode);
+        console.log('init kc', kc);
 		if (k == 191) return; // unicode i think
 	} else {
         console.log('4');
