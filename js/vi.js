@@ -2245,7 +2245,6 @@ function term_paste(after, ign) {
 	return true;
 }
 function term_keyfix(e) {
-    console.log('key down');
 	if (!e) e = window.event;
 
 	var ch = e.keyCode;
@@ -2258,7 +2257,7 @@ function term_keyfix(e) {
 		else if (e.DOM_VK_RIGHT == ch) ch = 57376;
 	}
 
-	if (ch == 8 || ch == 9 || ch == 37 || ch == 39
+	if (ch == 8 || ch == 9 || ch == 27 || ch == 39
 	|| ch == 38 || ch == 40 || ch == 127
 	|| ch == 33 || ch == 34 || ch == 36
 	|| ch == 35 || ch == 45 || ch == 46
@@ -2290,7 +2289,6 @@ function term_keypress(e) {
 	return false;
 }
 function term_keypress_inner(e, synth) {
-    console.log('key press inner');
 	var k = e.which;
 	var kc;
 	if (e.charCode) {
