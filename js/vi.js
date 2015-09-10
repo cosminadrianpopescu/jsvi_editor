@@ -2613,6 +2613,8 @@ function term_keypress_inner(e, synth) {
 
 	term_save_undo_line();
 
+    console.log('test', kc, ev);
+
 	if (fakemode || mode == 0) {
 		if (!fakemode && ctrl) return;
 		if (lk == 'F' || lk == 'T' || lk == 'f' || lk == 't') {
