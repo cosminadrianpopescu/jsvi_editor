@@ -2128,7 +2128,7 @@ function term_calcy() {
 function term_calcx() {
 	if (cursorx != cursor._lastx) {
         console.log('y', cursory);
-        var pre = $('.editor pre')[y];
+        var pre = $($('.editor pre')[y]);
         var size = 0;
         pre.children().each(function(idx){
             size += $(this).width();
