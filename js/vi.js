@@ -2132,8 +2132,7 @@ function term_calcx() {
         pre.children().each(function(idx){
             size += $(this).width();
         });
-        console.log('size is', size);
-		cursor.style.left = (cursorx * (term_cur_width)) + 'px';
+		cursor.style.left = size + 'px';
 		cursor._lastx = cursorx;
 		term_calcy();
 	}
