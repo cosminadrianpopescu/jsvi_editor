@@ -670,12 +670,7 @@ function _yaty(y) {
 function _cursortoxy(x,y) {
 	// this is a little gross...
 	var sx = cursorx;
-    if (_iswk){
-        cursorx = calc_cursor_x_for_chrome();
-    }
-    else {
-        cursorx = parseInt(x / term_cur_width);
-    }
+    cursorx = parseInt(x / term_cur_width);
 	term_redraw();
 
 	var sy = cursory;
