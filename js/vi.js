@@ -2363,6 +2363,8 @@ function term_keypress_inner(e, synth) {
 		}
 	}
 
+    console.log('test', kc, e);
+
 	var fakemode = false;
 
 	// emacsen
