@@ -669,6 +669,7 @@ function _yaty(y) {
 function _cursortoxy(x,y) {
 	// this is a little gross...
 	var sx = cursorx;
+    console.log(x, y);
 	cursorx = parseInt(x / term_cur_width);
 	term_redraw();
 
@@ -2127,7 +2128,7 @@ function term_calcy() {
 }
 function term_calcx() {
 	if (cursorx != cursor._lastx) {
-		cursor.style.left = (cursorx * (term_cur_width - 0.2)) + 'px';
+		cursor.style.left = (cursorx * (term_cur_width)) + 'px';
 		cursor._lastx = cursorx;
 		term_calcy();
 	}
