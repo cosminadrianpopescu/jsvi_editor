@@ -2258,8 +2258,8 @@ function term_keyfix(e) {
 		else if (e.DOM_VK_RIGHT == ch) ch = 57376;
 	}
 
-	if (ch == 8 || ch == 9 || ch == 27 || ch == 39
-	|| ch == 38 || ch == 40 || ch == 127
+	if (ch == 8 || ch == 9 || ch == 27 || ch == 39 
+	|| ch == 32 || ch == 37 || ch == 38 || ch == 40 || ch == 127
 	|| ch == 33 || ch == 34 || ch == 36
 	|| ch == 35 || ch == 45 || ch == 46
 	|| ch == 57373
@@ -2268,7 +2268,7 @@ function term_keyfix(e) {
 	|| ch == 57376) {
 		if (e.preventDefault) e.preventDefault();
 		if (e.stopPropagation) e.stopPropagation();
-		term_keypress_inner(e, ch != 27);
+		term_keypress_inner(e, ch != 27 && ch != 32);
 		e.cancelBubble=true;
 		return false;
 	} else {
