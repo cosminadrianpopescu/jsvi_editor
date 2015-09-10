@@ -58,7 +58,6 @@ var lastcommand;
 var lastmotion;
 var cursoriv;
 var drawiv;
-var _isWk = navigator.userAgent.match(/webkit/i) != null;
 
 var printer;
 var term;
@@ -2246,6 +2245,7 @@ function term_paste(after, ign) {
 	return true;
 }
 function term_keyfix(e) {
+    console.log('term_keyfix', e);
 	if (!e) e = window.event;
 
 	var ch = e.keyCode;
@@ -2290,6 +2290,7 @@ function term_keypress(e) {
 	return false;
 }
 function term_keypress_inner(e, synth) {
+    console.log('term_keypress', e, synth);
 	var k = e.which;
 	var kc;
 	if (e.charCode) {
