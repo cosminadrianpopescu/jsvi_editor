@@ -2245,7 +2245,6 @@ function term_paste(after, ign) {
 	return true;
 }
 function term_keyfix(e) {
-    console.log('term_keyfix', e);
 	if (!e) e = window.event;
 
 	var ch = e.keyCode;
@@ -2290,12 +2289,9 @@ function term_keypress(e) {
 	return false;
 }
 function term_keypress_inner(e, synth) {
-    console.log('term_keypress', e, synth);
 	var k = e.which;
 	var kc;
-    console.log('1', e.charCode, e.keyCode);
 	if (e.charCode) {
-        console.log('2');
 		if (e.charCode == 27 || e.charCode == 13 || e.charCode == 10
 				|| e.charCode == 8
 				|| e.charCode == 9) {
@@ -2321,14 +2317,10 @@ function term_keypress_inner(e, synth) {
 	} else if (e.keyCode) {
 		k = e.keyCode;
         kc = String.fromCharCode(e.keyCode);
-        console.log('init kc', kc);
 		if (k == 191) return; // unicode i think
 	} else {
-        console.log('4');
-        console.log('here');
 		if (!k || k == 191) return;
 		kc = String.fromCharCode(k);
-        console.log('kc', kc);
 		var i;
 	}
 	var mod;
@@ -2361,8 +2353,6 @@ function term_keypress_inner(e, synth) {
 			return;
 		}
 	}
-
-    console.log('test', kc, e);
 
 	var fakemode = false;
 
