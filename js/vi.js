@@ -58,6 +58,7 @@ var lastcommand;
 var lastmotion;
 var cursoriv;
 var drawiv;
+var _iswk = navigator.userAgent.match(/webkit/i) != null;
 
 var printer;
 var term;
@@ -669,7 +670,12 @@ function _yaty(y) {
 function _cursortoxy(x,y) {
 	// this is a little gross...
 	var sx = cursorx;
-	cursorx = parseInt(x / term_cur_width);
+    if (_iswk){
+        cursorx = calc_cursor_x_for_chrome();
+    }
+    else {
+        cursorx = parseInt(x / term_cur_width);
+    }
 	term_redraw();
 
 	var sy = cursory;
@@ -2125,14 +2131,23 @@ function term_calcy() {
 	}
 	_calcy(gg, xx.substr(zleft, xx.length-zleft), xg.substr(zleft, xg.length-zleft));
 }
+function calc_cursor_x_for_chrome(){
+    var pre = $($('.editor pre')[cursory]);
+    var size = 0;
+    pre.children().each(function(idx){
+        size += $(this).width();
+    });
+
+    return size;
+}
 function term_calcx() {
 	if (cursorx != cursor._lastx) {
-        var pre = $($('.editor pre')[cursory]);
-        var size = 0;
-        pre.children().each(function(idx){
-            size += $(this).width();
-        });
-		cursor.style.left = size + 'px';
+        if (!_iswk){
+            cursor.style.left = calc_cursor_x_for_chrome() + 'px';
+        }
+        else {
+            cursor.style.left = (cursorx * (term_cur_width)) + 'px';
+        }
 		cursor._lastx = cursorx;
 		term_calcy();
 	}
