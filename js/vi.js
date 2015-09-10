@@ -2613,7 +2613,7 @@ function term_keypress_inner(e, synth) {
 
 	term_save_undo_line();
 
-    console.log('test', kc, ev);
+    console.log('test', kc, e);
 
 	if (fakemode || mode == 0) {
 		if (!fakemode && ctrl) return;
