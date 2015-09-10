@@ -3471,7 +3471,8 @@ function _redraw_term() {
 	}
 	zx = undefined; // break
 
-	if (!spelling && tospell > 0) {
+    // Disable the spelling
+	if ((!spelling && tospell > 0) && 0) {
 		spelling = true;
 		var xh = _xhttp();
 		osp=osp.substr(0,osp.length-1);
