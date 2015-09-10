@@ -2309,7 +2309,11 @@ function term_keypress_inner(e, synth) {
 			k = 57376;
 		} else {
 			if (e.charCode == 191) return; // wtf?
-			kc = String.fromCharCode(e.charCode);
+            var cc = e.charCode;
+            if (e.charCode == 0){
+                cc = e.which;
+            }
+			kc = String.fromCharCode(cc);
 			k = 0;
 		}
 	} else if (e.keyCode) {
@@ -2612,8 +2616,6 @@ function term_keypress_inner(e, synth) {
 	}
 
 	term_save_undo_line();
-
-    console.log('test', kc, e);
 
 	if (fakemode || mode == 0) {
 		if (!fakemode && ctrl) return;
