@@ -2128,7 +2128,6 @@ function term_calcy() {
 function term_calcx() {
 	if (cursorx != cursor._lastx) {
 		cursor.style.left = (cursorx * (term_cur_width)) + 'px';
-        console.log('left', cursor.style.left);
 		cursor._lastx = cursorx;
 		term_calcy();
 	}
@@ -3377,7 +3376,7 @@ function _redraw_term() {
 				}
 
 				if (gx > 255) {
-					var wx = parseInt(gx / 256)-1;
+					var wx = parseInt(gx / 256);
 
 					ax = document.createElement('A');
 					if (isurl[wx]) {
