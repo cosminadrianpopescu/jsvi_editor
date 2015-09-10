@@ -2142,7 +2142,7 @@ function calc_cursor_x_for_chrome(){
 }
 function term_calcx() {
 	if (cursorx != cursor._lastx) {
-        if (!_iswk){
+        if (_iswk){
             cursor.style.left = calc_cursor_x_for_chrome() + 'px';
         }
         else {
