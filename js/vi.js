@@ -2326,6 +2326,7 @@ function term_keypress_inner(e, synth) {
 			else if (e.DOM_VK_RIGHT == k) k = 57376;
 		} else {
 			kc = String.fromCharCode(e.keyCode);
+            console.log('init kc', kc);
 		}
 		if (k == 191) return; // unicode i think
 	} else {
