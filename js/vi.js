@@ -2293,6 +2293,7 @@ function term_keypress_inner(e, synth) {
     console.log('term_keypress', e, synth);
 	var k = e.which;
 	var kc;
+    console.log('1', e.charCode, e.keyCode);
 	if (e.charCode) {
 		if (e.charCode == 27 || e.charCode == 13 || e.charCode == 10
 				|| e.charCode == 8
@@ -2328,8 +2329,10 @@ function term_keypress_inner(e, synth) {
 		}
 		if (k == 191) return; // unicode i think
 	} else {
+        console.log('here');
 		if (!k || k == 191) return;
 		kc = String.fromCharCode(k);
+        console.log('kc', kc);
 		var i;
 	}
 	var mod;
