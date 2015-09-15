@@ -1694,6 +1694,8 @@ function term_command(s) {
 	var cmd2 = s.substr(i,2);
 	var cmd = s.substr(i, 1);
 
+    console.log('commands', cmd, cmd2);
+
 	if (cmd2 == 'wq' || cmd == 'x') {
 		editor_disable(true);
 	} else if (cmd == '=') {
@@ -2022,7 +2024,13 @@ function term_command(s) {
 	} else if (cmd == '' && ng.length > 0) {
 		base = 0;
 		cursory = top;
-	} else {
+	} else if (cmd == 'c'){
+        var txt = prompt('If you want to paste from clipboard, just paste here. If you leave the text blank, then nothing will be pasted.');
+        if (txt != null){
+            term_paste(false, txt);
+            term_redraw();
+        }
+    } else {
 		statustext = "Not an editor command: " + s.substr(i,s.length-i);
 	}
 

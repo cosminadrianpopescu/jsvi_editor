@@ -12,6 +12,7 @@ function init_jsvi(){
         $('.scroller.withfooter').css('top', scrollerPos.top);
     });
 }
+
 $(document).ready(function(){
     if ($('input[name="_is_html"]').val() == '0'){
         if (typeof(editor) != 'undefined'){
