@@ -1694,8 +1694,6 @@ function term_command(s) {
 	var cmd2 = s.substr(i,2);
 	var cmd = s.substr(i, 1);
 
-    console.log('commands', cmd, cmd2);
-
 	if (cmd2 == 'wq' || cmd == 'x') {
 		editor_disable(true);
 	} else if (cmd == '=') {
