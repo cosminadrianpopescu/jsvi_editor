@@ -2143,12 +2143,7 @@ function calc_cursor_x_for_chrome(){
 }
 function term_calcx() {
 	if (cursorx != cursor._lastx) {
-        if (_iswk){
-            cursor.style.left = calc_cursor_x_for_chrome() + 'px';
-        }
-        else {
-            cursor.style.left = (cursorx * (term_cur_width)) + 'px';
-        }
+        cursor.style.left = (cursorx * (term_cur_width)) + 'px';
 		cursor._lastx = cursorx;
 		term_calcy();
 	}
@@ -3616,7 +3611,12 @@ function editor_disable(sav) {
     $(textarea).trigger('vi_quit', []);
 }
 function _cursor_fix() {
-	term_cur_width = cursor.offsetWidth;
+    if (_iswk){
+        term_cur_width = 7.201
+    }
+    else {
+        term_cur_width = cursor.offsetWidth;
+    }
 }
 function _zmp(o) {
 	o.style.marginTop='0px';
@@ -3723,6 +3723,7 @@ function editor(t) {
 	term._formelement = t;
     textarea = t;
 	document.body.style.overflow = 'hidden';
+	document.body.style.fontSize = '12px';
 	tools.style.display = 'block';
 
 	_cbd('select', _cancel_ev);
